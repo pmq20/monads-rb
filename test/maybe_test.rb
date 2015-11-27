@@ -1,4 +1,4 @@
-require 'minitest/autorun'
+require 'test_helper'
 
 class MaybeTest < Minitest::Test
   def test_p1
