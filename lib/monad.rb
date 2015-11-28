@@ -1,9 +1,11 @@
-# A monad is an object used in the following three scenarios
-# - there is a unit operation that allocates and returns a new monad object
-# - there is an old monad object when doing binding
-# - there is a method that will return a new monad object when doing binding
+# A monad is an object constructed by a unit operation.
 class Monad < BasicObject
   private
+  # when doing binding, there is an old monad object, that is, `self`.
+  # And there is a method that will return a new monad object.
+  def bind(&block)
+    
+  end
 
   def method_missing(method, *arguments, &block)
   end
