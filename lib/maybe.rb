@@ -1,6 +1,6 @@
 require 'monad'
 
-class MaybeMonad < Monad
+class Maybe < Monad
   def self.inject_syntax_sugar!
     
   end
