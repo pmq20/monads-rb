@@ -1,7 +1,7 @@
 require 'test_helper'
-require 'monad_test'
+require 'syntax_sugar'
 
-class MaybeTest < Minitest::Test
+class SyntaxSugarTest < Minitest::Test
   def setup
     @string = 'an_actual_string'
     @title = Minitest::Mock.new.expect(:string, @string)
