@@ -21,6 +21,7 @@ class MaybeTest < Minitest::Test
   def test_non_nil
     title = OpenStruct.new(string: 'Minqi Pan')
     @soup = OpenStruct.new(head: OpenStruct.new(title: title))
+    assert_equal title, @soup.maybe.head.title.just
     assert_equal 'Minqi Pan', @soup.maybe.head.title.string.just
   end
 
