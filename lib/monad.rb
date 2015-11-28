@@ -1,7 +1,7 @@
 # a Monad object represents computations defined as sequences of steps.
 class Monad
   def self.unit(value)
-    self.new(value)
+    new(value)
   end
 
   def bind(operation, *arguments, &block)
@@ -10,14 +10,21 @@ class Monad
       operation.bind(@value).call(*arguments, &block)
     when Method, Proc
       operation.call(@value, *arguments, &block)
+    when String
+      @value.send(operation, *arguments, &block)
     else
-      raise 'Unsupported operation supplied'
+      fail 'Unsupported operation type'
     end
   end
 
   def method(name)
-    Proc.new do |*arguments, &block|
-      new_value = bind(@value.class.instance_method(name), *arguments, &block)
+    if @value.class.instance_methods.include?(name.to_sym)
+      operation = @value.class.instance_method(name)
+    else
+      operation = name.to_s
+    end
+    proc do |*arguments, &block|
+      new_value = bind(operation, *arguments, &block)
       self.class.unit new_value
     end
   end
@@ -26,7 +33,7 @@ class Monad
     @value
   end
 
-  private
+  protected
 
   def initialize(value)
     @value = value
