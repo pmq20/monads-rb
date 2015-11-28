@@ -1,9 +1,9 @@
 require 'maybe'
 require 'minitest/autorun'
 
-class LawsTest < Minitest::Test
+class MonadTest < Minitest::Test
   def test_left_identity_law
-    assert_equal @monad_class.new(1).bind()
+    assert_equal 1.maybe.
   end
 
   def test_right_identity_law

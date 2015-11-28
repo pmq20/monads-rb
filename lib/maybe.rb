@@ -1,10 +1,10 @@
+require 'monad'
+
 module Maybe
-  def unit
-    'unit'
-  end
-  
-  def bind
-    'bind'
+  def maybe
+    Monad.new.tap do |monad|
+      
+    end
   end
 end
 
