@@ -1,3 +1,2 @@
-require 'maybe'
-require 'monad'
+require 'maybe_monad'
 require 'minitest/autorun'
