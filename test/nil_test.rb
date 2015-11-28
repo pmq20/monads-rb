@@ -1,14 +1,14 @@
 require 'monad'
 require 'maybe'
-require 'syntax_sugar'
 require 'minitest/autorun'
 
-class SyntaxSugarTest < Minitest::Test
+class MaybeTest < Minitest::Test
   def setup
     @string = 'Minqi Pan'
     @title = Minitest::Mock.new.expect(:string, @string)
     @head = Minitest::Mock.new.expect(:title, @title)
     @soup = Minitest::Mock.new.expect(:head, @head)
+    Object.include(Maybe) unless Object.include?(Maybe)
   end
 
   def test_non_nil
