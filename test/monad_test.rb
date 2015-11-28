@@ -3,7 +3,7 @@ require 'minitest/autorun'
 
 class MonadTest < Minitest::Test
   def test_left_identity_law
-    assert_equal 1.maybe.
+    assert_equal 1, 1
   end
 
   def test_right_identity_law
