@@ -25,7 +25,7 @@ end
 # Add #maybe to Object so that calling #maybe on any object
 # will guard the future method calls against the null value nil.
 Object.send(:define_method, :maybe) do
-  if self.kind_of?(Maybe)
+  if self.is_a?(Maybe)
     self
   else
     Maybe.unit(self)

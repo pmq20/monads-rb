@@ -35,7 +35,7 @@ class MaybeTest < Minitest::Test
     assert_equal nil, 'Minqi Pan'.maybe[600][0][0].just
   end
 
-  def test_NoMethodError_support
+  def test_no_method_error_support
     assert_raises(NoMethodError) do
       'Minqi Pan'.maybe.non_existing_method_on_non_nil_object
     end
