@@ -7,3 +7,5 @@ module Maybe
     'bind'
   end
 end
+
+Object.include(Maybe)

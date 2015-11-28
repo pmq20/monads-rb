@@ -1,8 +1,7 @@
-require 'monad'
 require 'maybe'
 require 'minitest/autorun'
 
-class MaybeTest < Minitest::Test
+class NilTest < Minitest::Test
   def setup
     @string = 'Minqi Pan'
     @title = Minitest::Mock.new.expect(:string, @string)
