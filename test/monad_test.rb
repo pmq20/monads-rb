@@ -1,4 +1,5 @@
-require 'test_helper'
+require 'monad'
+require 'minitest/autorun'
 
 class MonadTest < Minitest::Test
   def test_left_identity_law

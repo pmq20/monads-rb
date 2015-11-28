@@ -1,16 +1,18 @@
-require 'test_helper'
+require 'monad'
+require 'maybe'
 require 'syntax_sugar'
+require 'minitest/autorun'
 
 class SyntaxSugarTest < Minitest::Test
   def setup
-    @string = 'an_actual_string'
+    @string = 'Minqi Pan'
     @title = Minitest::Mock.new.expect(:string, @string)
     @head = Minitest::Mock.new.expect(:title, @title)
     @soup = Minitest::Mock.new.expect(:head, @head)
   end
 
   def test_non_nil
-    assert_equal 'an_actual_string', soup.maybe.head.title.string.just
+    assert_equal 'Minqi Pan', soup.maybe.head.title.string.just
   end
 
   def test_nil_soup
