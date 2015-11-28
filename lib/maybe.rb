@@ -8,7 +8,7 @@ class Maybe < Monad
       monad.instance_variable_set('@is_nil', true) if value.nil?
     end
   end
-  
+
   def bind(operation, *arguments, &block)
     return self if @is_nil
     super
@@ -24,4 +24,10 @@ end
 
 # Add #maybe to Object so that calling #maybe on any object
 # will guard the future method calls against the null value nil.
-Object.send(:define_method, :maybe) { Maybe.unit(self) }
+Object.send(:define_method, :maybe) do
+  if self.kind_of?(Maybe)
+    self
+  else
+    Maybe.unit(self)
+  end
+end
