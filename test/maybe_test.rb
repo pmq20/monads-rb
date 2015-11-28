@@ -31,7 +31,7 @@ class MaybeTest < Minitest::Test
   end
 
   def test_nil_bracket_support
-    assert_equal nil, 'Minqi Pan'.maybe[0..6][-200].just
+    assert_equal nil, 'Minqi Pan'.maybe[0..6][-200][123][0].just
     assert_equal nil, 'Minqi Pan'.maybe[600][0][0].just
   end
 
